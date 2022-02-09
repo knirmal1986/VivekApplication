@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ErrorComponent } from './error/error.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { LoginComponent } from './login/login.component';
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     ErrorComponent,
     ProductdetailComponent,
-    LoginComponent
+    LoginComponent,
+    TemplateFormsComponent
 
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { LoginComponent } from './login/login.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { ProductComponent } from './product/product.component';
@@ -18,6 +19,7 @@ const routesObj: Routes = [
       { path: 'detail/:id', component: ProductdetailComponent },
     ]
    },
+   { path: 'templateForms', component: TemplateFormsComponent },
   { path: '', redirectTo: 'login', pathMatch:'full' },
   { path: '**', component: ErrorComponent }
 
