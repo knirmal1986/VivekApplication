@@ -1,23 +1,38 @@
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
 
   <p>
     <label for="firstname">First Name</label>
-    <input type="text" name="firstname" #fname="ngModel" ngModel>
-  </p>
-<pre>Value    : {{fname.value}} </pre>
-<pre>valid    : {{fname.valid}} </pre>
-<pre>invalid  : {{fname.invalid}} </pre>
-<pre>touched  : {{fname.touched}} </pre>
-  <p>
+    <input type="text" name="firstname" #firstname="ngModel" ngModel
+    required minlength="5" maxlength="10">
+</p>
+{{firstname.errors | json}}
+<div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+
+  <div *ngIf="firstname.errors.required">
+    <span style="color: red;"> First Name is required </span>
+ </div>
+ <div *ngIf="firstname.errors.minlength">
+  <span style="color: red;">First Name Minimum Length is {{firstname.errors.minlength?.requiredLength}}</span>
+</div>
+</div>
+
+<p>
     <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" ngModel>
+    <input type="text" name="lastname" ngModel required pattern="^[a-zA-Z]+$">
   </p>
 
   <p>
     <label for="email">Email </label>
-    <input type="text" id="email" name="email" ngModel>
+    <input type="text" id="email" name="email" #email="ngModel" ngModel required email >
   </p>
-
+  <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+    <div *ngIf="email.errors.required">
+      <span style="color: red;">Email is required </span>
+    </div>
+    <div *ngIf="email.errors.email">
+      <span style="color: red;"> Invalid Email Address </span>
+    </div>
+  </div>
   <p>
     <label for="gender">Geneder</label>
     <input type="radio" value="male" name="gender" ngModel> Male
@@ -53,12 +68,9 @@
 
 </div>
   <p>
-    <button type="submit" >Submit</button>
+    <button type="submit"  [disabled]="!contactForm.valid">Submit</button>
   </p>
 
 </form>
 
-<pre>Value : {{contactForm.value | json }} </pre>
-<pre>Valid : {{contactForm.valid}} </pre>
-<pre>Touched : {{contactForm.touched  }} </pre>
-<pre>Submitted : {{contactForm.submitted  }} </pre>
+

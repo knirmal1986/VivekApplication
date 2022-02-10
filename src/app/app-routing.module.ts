@@ -1,3 +1,4 @@
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { LoginComponent } from './login/login.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
@@ -20,6 +21,7 @@ const routesObj: Routes = [
     ]
    },
    { path: 'templateForms', component: TemplateFormsComponent },
+   { path: 'reactiveForms', component: ReactiveFormsComponent },
   { path: '', redirectTo: 'login', pathMatch:'full' },
   { path: '**', component: ErrorComponent }
 

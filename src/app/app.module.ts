@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { TaskaddComponent } from './taskadd/taskadd.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { ObservableExComponent } from './observable-ex/observable-ex.component';
@@ -18,6 +18,7 @@ import { ErrorComponent } from './error/error.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { LoginComponent } from './login/login.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +35,15 @@ import { TemplateFormsComponent } from './template-forms/template-forms.componen
     ErrorComponent,
     ProductdetailComponent,
     LoginComponent,
-    TemplateFormsComponent
+    TemplateFormsComponent,
+    ReactiveFormsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductserviceService],
   bootstrap: [AppComponent]
