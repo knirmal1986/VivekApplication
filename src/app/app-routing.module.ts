@@ -1,3 +1,4 @@
+import { EmployeeModule } from './employee/employee.module';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +23,7 @@ const routesObj: Routes = [
    },
    { path: 'templateForms', component: TemplateFormsComponent },
    { path: 'reactiveForms', component: ReactiveFormsComponent },
+   { path: 'employee', loadChildren:() => import('./employee/employee.module').then(m=>m.EmployeeModule) },
   { path: '', redirectTo: 'login', pathMatch:'full' },
   { path: '**', component: ErrorComponent }
 

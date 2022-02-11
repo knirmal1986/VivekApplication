@@ -1,10 +1,27 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
 
   <p>
     <label for="firstname">First Name </label>
     <input type="text" id="firstname" name="firstname" formControlName="firstname">
   </p>
 
+  <!-- <div
+    *ngIf="!contactForm.controls?.firstname?.valid && (contactForm.controls?.firstname?.dirty
+    ||contactForm.controls?.firstname?.touched)">
+      <span style="color: red;"> Name is not valid </span>
+  </div> -->
+  <div *ngIf="!firstname?.valid && (firstname?.dirty ||firstname?.touched)">
+    <div [hidden]="!firstname.errors.required">
+      <span style="color: red;"> First Name is required </span>
+    </div>
+    <div [hidden]="!firstname.errors.minlength">
+      <span style="color: red;"> Min Length is 5 </span>
+    </div>
+  </div>
+  <!-- </div>
+  <div *ngIf="!firstname.valid && (firstname.dirty ||firstname.touched)">
+    <span style="color: red;">   First Name is not valid </span>
+</div> -->
   <p>
     <label for="lastname">Last Name </label>
     <input type="text" id="lastname" name="lastname" formControlName="lastname">
@@ -28,7 +45,7 @@
 
   <p>
     <label for="country">country </label>
-    <select id="country" name="country"  formControlName="country">
+    <select id="country" name="country" formControlName="country">
       <option [ngValue]="c.id" *ngFor="let c of countryList">
         {{c.name}}
       </option>
@@ -36,7 +53,7 @@
   </p>
 
   <p>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
   </p>
 
 </form>

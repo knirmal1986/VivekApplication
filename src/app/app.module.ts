@@ -19,6 +19,7 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { LoginComponent } from './login/login.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EmployeeModule
   ],
   providers: [ProductserviceService],
   bootstrap: [AppComponent]
