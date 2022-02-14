@@ -20,6 +20,11 @@ import { LoginComponent } from './login/login.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { EmployeeModule } from './employee/employee.module';
+import { BoostrapComponent } from './boostrap/boostrap.component';
+import { AuthGuardService } from './auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTPModuleComponent } from './httpmodule/httpmodule.component';
+import { HttpGetComponent } from './http-get/http-get.component';
 
 @NgModule({
   declarations: [
@@ -37,17 +42,21 @@ import { EmployeeModule } from './employee/employee.module';
     ProductdetailComponent,
     LoginComponent,
     TemplateFormsComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    BoostrapComponent,
+    HTTPModuleComponent,
+    HttpGetComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     EmployeeModule
   ],
-  providers: [ProductserviceService],
+  providers: [ProductserviceService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
