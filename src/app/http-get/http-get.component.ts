@@ -1,3 +1,4 @@
+import { GitHubServiceService } from './../git-hub-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,21 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HttpGetComponent implements OnInit {
 
-  userName: string = "tektutorialshub"
-  baseURL: string = "https://api.github.com/";
+  // userName: string = "tektutorialshub"
+  // baseURL: string = "https://api.github.com/";
+  loading: boolean = false;
+  errorMessage;
   repos: Repos[];
-  constructor(private http: HttpClient) { }
+  constructor(private gitGubService: GitHubServiceService) { }
 
   ngOnInit() {
     this.getRepos()
   }
 
   public getRepos() {
-    this.http.get<Repos[]>(this.baseURL+ 'users/' + this.userName + '/repos').
+    this.loading = true;
+    this.gitGubService.getRepos().
     subscribe
     (response => {
       console.log(response);
       this.repos = response;
+      this.loading = false;
     },
     (error)=> {
       console.error('Request failed with error')

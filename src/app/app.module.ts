@@ -25,6 +25,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTPModuleComponent } from './httpmodule/httpmodule.component';
 import { HttpGetComponent } from './http-get/http-get.component';
+import { HttpPostExComponent } from './http-post-ex/http-post-ex.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HttpGetComponent } from './http-get/http-get.component';
     ReactiveFormsComponent,
     BoostrapComponent,
     HTTPModuleComponent,
-    HttpGetComponent
+    HttpGetComponent,
+    HttpPostExComponent
 
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { HttpPostExComponent } from './http-post-ex/http-post-ex.component';
 import { HttpGetComponent } from './http-get/http-get.component';
 import { HTTPModuleComponent } from './httpmodule/httpmodule.component';
 import { BoostrapComponent } from './boostrap/boostrap.component';
@@ -30,6 +31,7 @@ const routesObj: Routes = [
    { path: 'httpex', component: HTTPModuleComponent,
    children:[
     { path: 'get', component: HttpGetComponent },
+    { path: 'post', component: HttpPostExComponent },
   ] },
    { path: 'boostrap', component: BoostrapComponent },
    { path: 'employee', loadChildren:() => import('./employee/employee.module').then(m=>m.EmployeeModule),
